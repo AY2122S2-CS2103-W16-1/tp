@@ -29,8 +29,8 @@ public class Person {
     public Person(Name name, Phone phone, Email email, Set<Tag> tags) {
         requireAllNonNull(name, phone, email, tags);
         this.name = name;
-        this.phone = phone;
         this.email = email;
+        this.phone = phone;
         this.tags.addAll(tags);
     }
 
