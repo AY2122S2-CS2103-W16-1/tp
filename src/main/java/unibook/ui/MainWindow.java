@@ -153,6 +153,22 @@ public class MainWindow extends UiPart<Stage> {
     }
 
     /**
+     * Utility method for checking if person list currently being shown.
+     * @return boolean value indicating if person list being shown
+     */
+    public boolean isPersonListShowing() {
+        return listPaneFlag == ListPaneFlag.PEOPLE;
+    }
+
+    /**
+     * Utility method for checking if module list currently being shown.
+     * @return boolean value indicating if module list being shown
+     */
+    public boolean isModuleListShowing() {
+        return listPaneFlag == ListPaneFlag.MODULES;
+    }
+
+    /**
      * Sets the default size based on {@code guiSettings}.
      */
     private void setWindowDefaultSize(GuiSettings guiSettings) {

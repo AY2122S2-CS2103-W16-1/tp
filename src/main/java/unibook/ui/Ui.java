@@ -22,4 +22,15 @@ public interface Ui {
      */
     void seePersonList();
 
+    /**
+     * Check if Person list being shown.
+     * @returns boolean indicating if Person list being shown
+     */
+    boolean isPersonListShowing();
+
+    /**
+     * Check if Modules list being shown.
+     * @returns boolean indicating if Module list being shown.
+     */
+    boolean isModuleListShowing();
 }

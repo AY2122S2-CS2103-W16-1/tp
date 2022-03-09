@@ -80,6 +80,16 @@ public class UiManager implements Ui {
         mainWindow.setPersonListPanel();
     }
 
+    @Override
+    public boolean isPersonListShowing() {
+        return mainWindow.isPersonListShowing();
+    }
+
+    @Override
+    public boolean isModuleListShowing() {
+        return mainWindow.isModuleListShowing();
+    }
+
     private Image getImage(String imagePath) {
         return new Image(MainApp.class.getResourceAsStream(imagePath));
     }
