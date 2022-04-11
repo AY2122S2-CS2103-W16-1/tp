@@ -762,18 +762,46 @@ testers are expected to do more *exploratory* testing.
 
 ### Editing a person
 
-1. Editing a person while on people view (similarly for module/group/key event)
+1. Edit a module with key events on module view.<br>
 
-   1. Prerequisites: List all persons using the `list o/view v/people` command. Multiple persons in the list.
+    1. Prerequisites: The specified module must exist in the UniBook, otherwise an error message will be displayed.
+       Go to Module view using the `list o/view v/modules`.
+       
+    2. Test Case: `edit 1 o/keyevent ke/2 type/exam dt/2022-04-15 23:59`<br>
+       Expected: The UniBook edits the first module in the shown list with the specified key events to the UniBook.              
+       
+2. Edit a group's meeting times in a module on module/group view.<br>
 
-   1. Test case: `edit 1 o/person n/Greg`<br>
-      Expected: First contact's name from the list changed to Greg from the list. Details of the edited contact shown in the status message.
+    1. Prerequisites: The specified module must exist in the UniBook, otherwise an error message will be displayed.
+       Go to Module/Group view using the `list o/view v/modules` or `list o/view v/groups` respectively.
 
-   1. Test case: `edit 1`<br>
-      Expected: No object is edited. Error details shown in the status message. Status bar remains the same.
+    2. Test Case: `edit 1 o/group m/cs1231s mt/1 2022-04-15 13:00`<br>
+       Expected: The UniBook edit the first group in the specified module with the specified meeting time.
 
-   1. Other incorrect delete commands to try: `edit`, `edit x`, `...` (where x is larger than the list size)<br>
-      Expected: Similar to previous.
+3. Add a person's (student/professor) to a new module on people view.<br>
+
+    1. Prerequisites: The specified module must exist in the UniBook, otherwise an error message will be displayed.
+       Go to people view using the `list o/view v/people`. 
+
+    2. Test Case: `edit 1 o/person nm/CS1231S`<br>
+       Expected: The UniBook adds this student to the specified module.
+       
+4. Add a person's (student/professor) to a group on people view.<br>
+
+    1. Prerequisites: The specified module and group must exist in the UniBook, and student must already be enrolled in the specified module, otherwise an error message will be displayed.
+    Both `m/MODULECODE` and `g/GROUPNAME` fields must be present. Go to People view using the `list o/view v/people`.
+
+    2. Test Case: `edit 1 o/person m/CS1231S g/T2`<br>
+       Expected: The UniBook adds this student to the specified module.
+       
+
+5. Edit a person's (student/professor) information on people view.<br>
+
+    1. Prerequisites: The specified person must exist in the UniBook, otherwise an error message will be displayed.
+    User must be on the people page, if not an error will be shown.
+
+    2. Test Case: `edit 1 o/person n/Alex p/91234567 e/hello@gmail.com`<br>
+       Expected: Edits the first person's in UniBook name, phone and email to the respective inputs.
 
 ### Finding a person
 1. Finding a person
